@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Text, StyleSheet, View, TextInput, Button} from 'react-native';
 
-const App = () => {
+const Login = () => {
+    console.log("hitting login")
   return (
     <View>
-      <Text> Login Form </Text>
+      <Text>Login Form</Text>
       <View>
         <TextInput 
           placeholder="Email" 
@@ -13,12 +14,12 @@ const App = () => {
           secureTextEntry={true}
           placeholder="Password"
         />
+        <Button title="Log In"/>
       </View>
     </View>
   );
 };
 const styles = StyleSheet.create({
-  //Check project repo for styles
 });
 
-export default App;
+export default Login;
