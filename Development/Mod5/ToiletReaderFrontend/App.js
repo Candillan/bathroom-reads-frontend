@@ -32,11 +32,19 @@ class App extends React.Component {
   componentDidMount() {
     fetch('http://localhost:3000/users')
       .then(response => response.json())
-      .then(users => this.setState({ currentUser: users[0], loggedIn: true, view: "feed" }))
+      .then(users => this.setState({ currentUser: users[0]}))
   }
 
   changeView = (input) => {
     this.setState({ view: input })
+  }
+
+  logOut = () => {
+    this.setState({loggedIn: false, view: null})
+  }
+
+  logIn = () => {
+    this.setState({loggedIn: true, view: "feed"})
   }
 
 
@@ -44,13 +52,14 @@ class App extends React.Component {
     // console.log(this.state.currentUser)
     return (
       <>
-        {/* <View> */}
-        <View style={styles.sectionContainer}>
-          {/* <View><Text>Text</Text></View> */}
-          {this.state.loggedIn ? <MenuBar changeView={this.changeView}/> : <Login />}
-          {/* {this.state.view === "feed" ? <PostFeed user={this.state.currentUser} post={this.state.posts} nextPost={this.nextPost}/> : null } */}
-          {this.state.view === "feed" ? <PostFeed user={this.state.currentUser} nextPost={this.nextPost}/> : null }
-          {this.state.view === "profile" ? <ProfileView user={this.state.currentUser}/> : null }
+        <View style={{flex: 1, backgroundColor: '#d1ebed'}}>
+          {this.state.loggedIn ? <MenuBar logOut={this.logOut} changeView={this.changeView}/> : <Login logIn={this.logIn}/>}
+          <View style={styles.sectionContainer}>
+            {/* <View><Text>Text</Text></View> */}
+            {/* {this.state.view === "feed" ? <PostFeed user={this.state.currentUser} post={this.state.posts} nextPost={this.nextPost}/> : null } */}
+            {this.state.view === "feed" ? <PostFeed user={this.state.currentUser} nextPost={this.nextPost}/> : null }
+            {this.state.view === "profile" ? <ProfileView user={this.state.currentUser}/> : null }
+          </View>
         </View>
       </>
     );
@@ -69,10 +78,8 @@ const styles = StyleSheet.create({
   //   backgroundColor: Colors.white,
   // },
   sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-    color: '#000',
-    marginBottom: 32
+    marginTop: 33,
+    paddingHorizontal: 24
   },
   // sectionTitle: {
   //   fontSize: 24,

@@ -14,10 +14,15 @@ class ProfileView extends React.Component {
     render(){
         // console.log(this.props.user)
         return (
-            <View>
-                <Text style={{fontSize: 20}}>Profile</Text>
-                <Text>Username: {this.props.user.username}</Text>
-                <Text>Handle: {this.props.user.handle}</Text>
+            <View style={{ marginTop: 12,
+                padding: 12,
+                borderRadius: 8,
+                color: "#a9d7db",
+                backgroundColor: "#5eb6bd"}}>
+                <Text style={{fontSize: 25, fontWeight: "bold"}}>Profile</Text>
+                <Text style={{fontSize: 18}}>Username: {this.props.user.username}</Text>
+                <Text style={{fontSize: 18}}>Handle: {this.props.user.handle}</Text>
+                <Text style={{fontSize: 16}}>Categories:</Text>
                 <InterestContainer user={this.props.user}/>
             </View>
         )
