@@ -5,7 +5,6 @@ const Post = (props) => {
     console.log(props.post)
     return (
         <View>
-            {/* {props.post ? <Text style={{fontSize: 25}}>{props.post.id}</Text> : null} */}
             <View>
                 <Text style={{color: 'red', fontWeight: "bold"}}>[{props.post.category.name}]</Text>
                 <Text style={{fontSize: 30, fontWeight: "bold"}}>{props.post.title}</Text>

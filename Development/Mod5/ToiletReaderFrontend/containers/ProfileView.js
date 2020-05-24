@@ -1,18 +1,9 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import { View, Text } from 'react-native';
 import InterestContainer from '../containers/InterestContainer'
-// import Post from '../components/Post';
 
 class ProfileView extends React.Component {
     render(){
-        // console.log(this.props.user)
         return (
             <View style={{ marginTop: 12,
                 padding: 12,

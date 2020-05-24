@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, StyleSheet, View, TextInput, Button} from 'react-native';
+import {Text, View, TextInput, Button} from 'react-native';
 
 const Login = (props) => {
     console.log("hitting login")
@@ -24,7 +24,5 @@ const Login = (props) => {
     </View>
   );
 };
-const styles = StyleSheet.create({
-});
 
 export default Login;

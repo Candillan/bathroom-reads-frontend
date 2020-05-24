@@ -1,15 +1,6 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  FlatList
-} from 'react-native';
+import { View, FlatList } from 'react-native';
 import InterestButton from '../components/InterestButton'
-// import Post from '../components/Post';
 
 class InterestContainer extends React.Component {
 
@@ -28,7 +19,6 @@ class InterestContainer extends React.Component {
     }
 
     addCategory = (catID) => {
-        // console.log("adding", catID)
         const body = {category_id: catID, user_id: this.props.user.id}
         fetch('http://localhost:3000/interests',{
             method: "POST",
@@ -37,7 +27,6 @@ class InterestContainer extends React.Component {
         })
         .then(response => response.json())
         .then(interest => {
-            // console.log(interest)
             this.state.interests.push(interest)
             const newArray = this.state.interests
             this.setState({interests: newArray})
@@ -45,14 +34,12 @@ class InterestContainer extends React.Component {
     }
 
     removeCategory = (interestID) => {
-        // console.log("removing", interestID)
         const newArray = this.state.interests.filter(interest => interest.id !== interestID)
         fetch(`http://localhost:3000/interests/${interestID}`, { method: "DELETE" })
         .then(this.setState({interests: newArray}))
     }
 
     render(){
-        // console.log(this.props.user)
         return (
             <View style={{margin: 20, flexDirection: 'row', justifyContent: 'space-between'}}>
                 <FlatList 

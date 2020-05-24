@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  FlatList
-} from 'react-native';
+import { View, Text } from 'react-native';
 import Post from '../components/Post';
 
 class PostFeed extends React.Component {
@@ -27,9 +19,6 @@ class PostFeed extends React.Component {
                 this.setState({ posts: posts })
             }
         })
-        // fetch(`http://localhost:3000/posts/${this.props.post.id}`)
-        // .then(response => response.json())
-        // .then(post => this.setState({post: post}))
     }
 
     viewPost = () => {
@@ -77,16 +66,12 @@ class PostFeed extends React.Component {
     }
 
     render(){
-        // console.log("truth checker", !!(this.state.posts))
-        // console.log("posts", this.state.posts)
-        // this.viewPost()
         return (
             <View style={{ marginTop: 12,
                 padding: 12,
                 borderRadius: 8,
                 color: "#a9d7db",
                 backgroundColor: "#5eb6bd"}}>
-                {/* <Text style={{fontSize: 30, fontWeight: "bold"}}>Post Feed</Text> */}
                 {this.state.posts && this.state.posts.length > 0 ? <Post post={this.state.posts[0]} nextPost={this.nextPost} like={this.addLike} removeLike={this.removeLike} liked={this.state.liked} /> : <Text>No posts found! If you have no categories selected, this may be why. Please go to Profile to add some! Alternatively, perhaps you've reached the end of the content avaiable!</Text>}
             </View>
         )
